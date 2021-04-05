@@ -22,7 +22,7 @@ const NoteScreen = () => {
         <div className="notes__image">
           <img
             src="https://conceptodefinicion.de/wp-content/uploads/2014/05/Imagen-2.jpg"
-            alt="image"
+            alt="imageP"
           />
         </div>
       </div>

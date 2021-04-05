@@ -1,10 +1,16 @@
 import React from "react";
 
-const SocialNetworkButton = () => {
+const SocialNetworkButton = ({HandleGoogleLogin}) => {
+
+  
+
   return (
     <div className='auth__social-networks'>
       <p>Login with Social Networks</p>
-      <div className="google-btn">
+      <div 
+        className="google-btn"
+        onClick={ HandleGoogleLogin }
+        >
         <div className="google-icon-wrapper">
           <img
             className="google-icon"
