@@ -10,10 +10,10 @@ const RegisterScreen = () => {
   const dispatch = useDispatch();
 
   const [formValues, handleInputChange] = useCustomForm({
-    name: "Andres",
-    email: "ing.villanuevattt@gmail.com",
-    password: "@rtechnoL12",
-    confirmPassword: "@rtechnoL12",
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   });
 
   const { name, email, password, confirmPassword } = formValues;
@@ -42,7 +42,7 @@ const RegisterScreen = () => {
   };
 
   return (
-    <>
+    <div className='animate__animated animate__fadeIn animate__faster'>
       <h3 className="auth__title">Register</h3>
 
       <form onSubmit={handleRegister}>
@@ -92,7 +92,7 @@ const RegisterScreen = () => {
           Already register
         </Link>
       </form>
-    </>
+    </div>
   );
 };
 

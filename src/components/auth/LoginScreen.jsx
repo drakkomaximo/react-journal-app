@@ -13,8 +13,8 @@ const LoginScreen = () => {
   const { loading } = useSelector((state) => state.ui);
 
   const [formValues, handleInputChange] = useCustomForm({
-    email: "ing.villanuevattt@gmail.com",
-    password: "@rtechnoL12",
+    email: "",
+    password: "",
   });
 
   const { email, password } = formValues;
@@ -45,10 +45,12 @@ const LoginScreen = () => {
   };
 
   return (
-    <>
+    <div className='animate__animated animate__fadeIn animate__faster'>
       <h3 className="auth__title">Login</h3>
 
-      <form onSubmit={HandleLogin}>
+      <form 
+        onSubmit={HandleLogin}
+        >
         <input
           className="auth__input"
           type="text"
@@ -83,7 +85,7 @@ const LoginScreen = () => {
           Create a new account
         </Link>
       </form>
-    </>
+    </div>
   );
 };
 

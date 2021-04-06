@@ -49,6 +49,7 @@ width: 450px;
     border-radius: 4px;
     color: $dark-grey;
     display: flex;
+    justify-content: space-between;
     margin-bottom: 10px;
     overflow: hidden;
     cursor: pointer;
@@ -61,8 +62,12 @@ width: 450px;
 
 .journal__entry-body{
     padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .journal__entry-title{
+    text-align: center;
     font-size: 14px;
     font-weight: bold;
 }

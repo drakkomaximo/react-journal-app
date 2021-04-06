@@ -1,33 +1,52 @@
-import React from 'react'
+import React from "react";
+import moment from "moment";
+import { useDispatch } from "react-redux";
+import { activeNote } from "../../actions/notes";
 
-const JournalEntry = () => {
-    return (
-        <div className='journal__entry'>
-            <div 
-                className='journal__entry_picture'
-                style={{
-                    backgroundSize:'cover',
-                    backgroundImage:'url(https://d500.epimg.net/cincodias/imagenes/2018/11/13/lifestyle/1542113135_776401_1542116070_noticia_normal.jpg)'
-                }}
-                >
+const JournalEntry = ({ id, date, title, body, url }) => {
 
-            </div>
+  const noImage = 'http://res.cloudinary.com/dwkcka2tc/image/upload/c_scale,w_75/v1617692896/no-image.png'
+  const noteDate = moment(date);
+  const dispatch = useDispatch();
+  const handleEntryClick = () => {
+    dispatch(
+      activeNote(id, {
+        title,
+        body,
+        url,
+        date,
+      })
+    );
+  };
 
-            <div className='journal__entry-body'>
-                <p className='journal__entry-title'>
-                    A new day
-                </p>
-                <p className='journal__entry-content'>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia necessitatibus illum 
-                </p>
-            </div>
+  return (
+    <div className="journal__entry animate__animated animate__fadeIn animate__faster" onClick={handleEntryClick}>
+      {url ? (
+        <div
+          className="journal__entry_picture"
+          style={{
+            backgroundSize: "cover",
+            backgroundImage: `url(${url})`,
+          }}
+        ></div>
+      ):<div
+      className="journal__entry_picture"
+      style={{
+        backgroundSize: "cover",
+        backgroundImage: `url(${noImage})`,
+      }}
+    ></div>}
 
-            <div className='journal__entry-date-box'>
-                <span>Monday</span>
-                <h4>28</h4>
-            </div>
-        </div>
-    )
-}
+      <div className="journal__entry-body">
+        <p className="journal__entry-title">{title ? title : 'New entry'}</p>
+      </div>
 
-export default JournalEntry
+      <div className="journal__entry-date-box">
+        <span>{noteDate.format("dddd")}</span>
+        <h4>{noteDate.format("Do")}</h4>
+      </div>
+    </div>
+  );
+};
+
+export default JournalEntry;
